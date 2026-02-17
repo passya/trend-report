@@ -23,20 +23,33 @@ def generate_index():
             date = date_match.group(1) if date_match else "Unknown Date"
             
             # Extract title (first h1)
+            # Extract title (first h1) and summary
             title = "Daily Trend Analysis"
+            summary = ""
             try:
                 with open(filepath, 'r', encoding='utf-8') as f:
-                    for line in f:
-                        if line.startswith('# '):
-                            title = line.strip('# ').strip()
-                            break
+                    content = f.read()
+                    
+                    # Extract Title
+                    title_match = re.search(r'^#\s+(.+)$', content, re.MULTILINE)
+                    if title_match:
+                        title = title_match.group(1).strip()
+                    
+                    # Extract Summary (content between Summary header and next header or horizontal rule)
+                    summary_match = re.search(r'## 📊 요약 \(Executive Summary\)\s*(.*?)\s*(?:---|##)', content, re.DOTALL)
+                    if summary_match:
+                        summary = summary_match.group(1).strip()
+                        # simple cleanup of markdown
+                        summary = summary.replace('**', '').replace('*', '')
+
             except Exception as e:
                 print(f"Error reading {filename}: {e}")
 
             reports.append({
                 'filename': filename,
                 'date': date,
-                'title': title
+                'title': title,
+                'summary': summary
             })
 
     # Sort by date descending

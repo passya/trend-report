@@ -16,7 +16,7 @@ body {
 }
 
 .container {
-    max-width: 800px;
+    max-width: 1200px;
     margin: 0 auto;
     padding: 20px;
 }
@@ -35,17 +35,33 @@ h1 {
 
 .report-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
-    gap: 20px;
+    grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+    gap: 30px;
 }
 
 .report-card {
     background-color: var(--card-bg);
     border: 1px solid var(--border-color);
     border-radius: 6px;
-    padding: 20px;
-    text-align: center;
-    transition: transform 0.2s;
+    padding: 25px;
+    text-align: left;
+    transition: transform 0.2s, border-color 0.2s;
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+}
+
+.report-card h2 {
+    margin-top: 0;
+    color: var(--text-color);
+    font-size: 1.5rem;
+}
+
+.report-card .summary {
+    flex-grow: 1;
+    color: #8b949e;
+    font-size: 0.95rem;
+    margin-bottom: 20px;
 }
 
 .report-card:hover {
