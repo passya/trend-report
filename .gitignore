@@ -1,0 +1,12 @@
+# 아이디어/디자인 문서 (트렌드 리포트만 push)
+docs/reports/clueforge_*
+docs/reports/chronicles_*
+docs/reports/ideas_*
+docs/reports/adult_*
+docs/reports/*_review_article.md
+docs/reports/*_engineering_qa.md
+docs/reports/*_gdd.md
+docs/reports/*_character_bible.md
+docs/reports/*_level_design.md
+docs/reports/*_scenario_*.md
+docs/reports/*_letsplay_script.md
